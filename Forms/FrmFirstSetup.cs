@@ -1,8 +1,10 @@
-﻿using Microsoft.Win32;
+﻿using FSS;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Odbc;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -57,7 +59,7 @@ namespace PurchasePrinting.Forms
         }
         static void CopyDatabaseToExeFolder()
         {
-            string sourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.accdb");
+            string sourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "po.icc");
             string destinationPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.accdb");
 
             try
@@ -77,34 +79,52 @@ namespace PurchasePrinting.Forms
         // Import the SQLConfigDataSource function from the odbcinst library
 
 
-        private void MakeDSN(string DSN)
+        private bool MakeDSN(string DSN)
         {
-
-            string dsnName = "SMC2000"; // DSN Name
-            string driver = "SQL Server"; // Must match ODBC driver list
-            string server = "SMC2000"; // Your SQL Server name
-            string database = "Pegasus"; // Target database
-            string username = "sa"; // SQL Server login
-            string password = ""; // SQL Server password
-
-            // Ensure the DSN command is formatted correctly
-            string command = $@"odbcconf.exe /a {{CONFIGSYSDSN ""{driver}"" ""DSN={dsnName}|Server={server}|Database={database}|UID={username}|PWD={password}""}}";
 
             try
             {
-                Process process = new Process();
-                process.StartInfo.FileName = "cmd.exe";
-                process.StartInfo.Arguments = $"/C {command}";
-                process.StartInfo.Verb = "runas"; // Run as Administrator
-                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                process.Start();
-                process.WaitForExit();
+                string dsnName = DSN;  // Name of the DSN
+                string server = DSN;   // Change to your SQL Server
+                string database = "Pegasus"; // Change to your Database
 
-                Console.WriteLine("System DSN created successfully with SQL Authentication!");
+                // DSN Registry Path (HKEY_CURRENT_USER for User DSN)
+                string dsnRegistryPath = @"SOFTWARE\ODBC\ODBC.INI\" + dsnName;
+                string odbcDriversPath = @"SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers";
+
+                // ✅ Create DSN Key
+                RegistryKey dsnKey = Registry.CurrentUser.CreateSubKey(dsnRegistryPath);
+                if (dsnKey == null)
+                {
+                    MessageBox.Show("Failed to create DSN registry key.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                dsnKey.SetValue("Driver", "SQLSRV32.DLL");  // ODBC SQL Server Driver
+                dsnKey.SetValue("Server", server);
+                dsnKey.SetValue("Database", database);
+                dsnKey.SetValue("UID", "sa");  // Replace with actual username
+                dsnKey.SetValue("PWD", "");  // Replace with actual password
+                dsnKey.SetValue("Trusted_Connection", "No"); /// Use Windows Authentication
+                dsnKey.Close();
+
+                // ✅ Ensure "ODBC Drivers" key exists
+                RegistryKey odbcKey = Registry.CurrentUser.OpenSubKey(odbcDriversPath, true);
+                if (odbcKey == null)
+                {
+                    odbcKey = Registry.CurrentUser.CreateSubKey(odbcDriversPath);
+                }
+
+                odbcKey.SetValue(dsnName, "Installed");
+                odbcKey.Close();
+
+                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error creating DSN: " + ex.Message);
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
             }
 
         }
@@ -120,13 +140,11 @@ namespace PurchasePrinting.Forms
                 }
             }
 
-
             if (chkEmailSender.Checked == true)
             {
-
-                if (!File.Exists(txtFileTransfer.Text))
+                if (Directory.Exists(txtFileTransfer.Text) == false)
                 {
-                    MessageBox.Show("Choose a distination folder for completed file transfers.", "System setup");
+                    MessageBox.Show("Choose a destination folder for completed file transfers.", "System setup");
                     return;
                 }
 
@@ -137,13 +155,24 @@ namespace PurchasePrinting.Forms
                 }
 
                 CopyDatabaseToExeFolder();
-
+                AccessDatabase.ExecuteNonQuery($@"INSERT INTO [users] ([username],[password]) VALUES ('{txtUsername.Text}','{txtPassword.Text}')");
             }
 
 
+            if (chkPrint.Checked == false && chkEmailSender.Checked == false)
+            {
+                MessageBox.Show("Please select Print and Export or Email Sender", "System setup");
+                return;
+            }
 
 
+            makeConfig();
+            Close();
 
+
+        }
+        public void makeConfig()
+        {
             string configFile = "config.ini";
             string defaultConfig = $@"
 
@@ -167,26 +196,57 @@ namespace PurchasePrinting.Forms
 
                     [users]
                     savelogin=
+                    admin={txtUsername.Text}
 
                     ";
-
-
-
-
-
-
 
             File.WriteAllText(configFile, defaultConfig.Trim());
             Console.WriteLine("Config file created successfully.");
         }
+        public OdbcConnection GetConnection(string serverName)
+        {
 
+            string connectionString = $"DSN={serverName};UID=sa;PWD=;";
+            return new OdbcConnection(connectionString);
+        }
+        public void ConnectionTest()
+        {
+
+            try
+            {
+                using (OdbcConnection conn = GetConnection(txtServer.Text))
+                {
+                    conn.Open();
+                    MessageBox.Show("Connection Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Close();
+                    testConnection = true;
+                }
+            }
+            catch (Exception)
+            {
+                testConnection = false;
+                MessageBox.Show("Invalid connection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
 
+            if (txtServer.Text.Length <= 3)
+            {
+                MessageBox.Show("Invalid Server name");
+                return;
+            }
 
-            testConnection = true;
-            MakeDSN(txtServer.Text);
-            MessageBox.Show("Test connection success");
+            if (MakeDSN(txtServer.Text))
+            {
+
+
+                ConnectionTest();
+
+            }
+            //MessageBox.Show("Test connection success");
         }
     }
 }

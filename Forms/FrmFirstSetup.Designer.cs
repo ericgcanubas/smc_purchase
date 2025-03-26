@@ -127,7 +127,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(407, 42);
+            this.btnBrowse.Location = new System.Drawing.Point(405, 42);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(74, 23);
             this.btnBrowse.TabIndex = 9;
@@ -162,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(9, 22);
+            this.label3.Location = new System.Drawing.Point(9, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 7;
@@ -173,12 +173,13 @@
             this.txtPassword.Location = new System.Drawing.Point(91, 51);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(188, 23);
             this.txtPassword.TabIndex = 6;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(91, 19);
+            this.txtUsername.Location = new System.Drawing.Point(91, 23);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(188, 23);
@@ -197,13 +198,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 16);
+            this.label2.Size = new System.Drawing.Size(327, 16);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Choose a distination folder for completed file transfers.";
+            this.label2.Text = "Choose a destination folder for completed file transfers.";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(414, 303);
+            this.btnDone.Location = new System.Drawing.Point(414, 298);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(86, 24);
             this.btnDone.TabIndex = 10;

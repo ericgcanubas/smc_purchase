@@ -34,14 +34,11 @@
             this.pRBatchPrintingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOExportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.directoryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +46,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.purchasesToolStripMenuItem,
-            this.optionToolStripMenuItem,
             this.emailToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -64,8 +60,9 @@
             this.pOExportToolStripMenuItem,
             this.pOExportToolStripMenuItem1});
             this.purchasesToolStripMenuItem.Name = "purchasesToolStripMenuItem";
-            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.purchasesToolStripMenuItem.Text = "&Print && Export";
+            this.purchasesToolStripMenuItem.Visible = false;
             // 
             // pRBatchPrintingToolStripMenuItem
             // 
@@ -88,67 +85,45 @@
             this.pOExportToolStripMenuItem1.Text = "Export PO";
             this.pOExportToolStripMenuItem1.Click += new System.EventHandler(this.pOExportToolStripMenuItem1_Click);
             // 
-            // optionToolStripMenuItem
-            // 
-            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectionToolStripMenuItem,
-            this.directoryFileToolStripMenuItem});
-            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.optionToolStripMenuItem.Text = "Option";
-            // 
-            // connectionToolStripMenuItem
-            // 
-            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.connectionToolStripMenuItem.Text = "Connection";
-            this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
-            // 
-            // directoryFileToolStripMenuItem
-            // 
-            this.directoryFileToolStripMenuItem.Name = "directoryFileToolStripMenuItem";
-            this.directoryFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.directoryFileToolStripMenuItem.Text = "Directory File";
-            this.directoryFileToolStripMenuItem.Click += new System.EventHandler(this.directoryFileToolStripMenuItem_Click);
-            // 
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileSenderToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.emailSetupToolStripMenuItem,
-            this.userListToolStripMenuItem});
+            this.settingsToolStripMenuItem});
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
             this.emailToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.emailToolStripMenuItem.Text = "Email";
+            this.emailToolStripMenuItem.Text = "&Email";
+            this.emailToolStripMenuItem.Visible = false;
             // 
             // fileSenderToolStripMenuItem
             // 
             this.fileSenderToolStripMenuItem.Name = "fileSenderToolStripMenuItem";
-            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.fileSenderToolStripMenuItem.Text = "File Sender";
+            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileSenderToolStripMenuItem.Text = "Send a File";
             this.fileSenderToolStripMenuItem.Click += new System.EventHandler(this.fileSenderToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.emailListToolStripMenuItem1});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.settingsToolStripMenuItem.Text = "Configuration";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
             // 
-            // emailSetupToolStripMenuItem
+            // usersToolStripMenuItem
             // 
-            this.emailSetupToolStripMenuItem.Name = "emailSetupToolStripMenuItem";
-            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.emailSetupToolStripMenuItem.Text = "Email Setup";
-            this.emailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.usersToolStripMenuItem.Text = "User List";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
-            // userListToolStripMenuItem
+            // emailListToolStripMenuItem1
             // 
-            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.userListToolStripMenuItem.Text = "User List";
-            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            this.emailListToolStripMenuItem1.Name = "emailListToolStripMenuItem1";
+            this.emailListToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.emailListToolStripMenuItem1.Text = "Email List";
+            this.emailListToolStripMenuItem1.Click += new System.EventHandler(this.emailListToolStripMenuItem1_Click);
             // 
             // FrmMain
             // 
@@ -161,7 +136,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PO - Southwood Mindanao Corporation";
+            this.Text = "Print & Export - PO files";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -177,15 +152,12 @@
         private System.Windows.Forms.ToolStripMenuItem purchasesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRBatchPrintingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOExportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem directoryFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOExportToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileSenderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emailSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emailListToolStripMenuItem1;
     }
 }
 

@@ -14,7 +14,7 @@ namespace PurchasePrinting.Class
 
             string configFile = "config.ini";
 
-            if (!File.Exists(configFile))
+            if (File.Exists(configFile) == false)
             {
 
 

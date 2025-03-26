@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace PurchasePrinting.Class
 {
     internal class ClsQuery
-    {
+    {   
         public static bool DataExist(string table, string column, string value)
         {
             bool result = false;

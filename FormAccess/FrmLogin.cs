@@ -1,4 +1,5 @@
 ﻿using EmailSenderToSupplier;
+using PurchasePrinting.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,10 @@ namespace FSS
 
             if(_IsAdmin == true)
             {
-                txtUsername.Text = "admin";
+
+                var config = UserDirectory.getDirectory();
+
+                txtUsername.Text = config["admin"].ToString();
                 txtUsername.Enabled = false;
             }
         }
