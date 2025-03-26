@@ -279,8 +279,6 @@ namespace PurchasePrinting
             if (ArrayInfo != null && ArrayInfo.Length > 0)
             {
 
-
-
                 txtSupplierID.Text = Convert.ToDouble(ArrayInfo[1]).ToString("00000000");
                 txtSupplierName.Text = Convert.ToString(ArrayInfo[2]);
             }

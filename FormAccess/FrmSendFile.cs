@@ -19,7 +19,7 @@ namespace FSS
         public string pathFile;
         public ListView lvFiles;
         public string _username;
-        public FrmSendFile(string pathFile, ListView lvFiles, bool reSend,string userName)
+        public FrmSendFile(string pathFile, ListView lvFiles, bool reSend, string userName)
         {
             this._username = userName;
             this.pathFile = pathFile;
@@ -48,6 +48,9 @@ namespace FSS
             txtSubject.Text = sen["subject"];
             txtMessage.Text = sen["message"];
             cmbEmail.Text = sen["email"];
+
+
+            generateEmailDestination();
         }
         private void hasSaveFile()
         {
@@ -74,10 +77,17 @@ namespace FSS
 
                     if (AccessDatabase.RecordExists($"Select * from [fileSend] where [PO_NUMBER] = '{item.SubItems[2].Text}' ") == false)
                     {
-                        string FileAttachment = this.pathFile + @"\" + item.SubItems[2].Text + $"[{item.SubItems[1].Text}].pdf";
-                        string SaveAttachment = saveFile + @"\" + item.SubItems[2].Text + ".pdf";
-                        File.Move(FileAttachment, SaveAttachment);
-                        AccessDatabase.ExecuteNonQuery($@"INSERT INTO [fileSend] ([PO_NUMBER],[EMAIL_ADDRESS],[SAVE_PATH],[SOURCE_PATH],[POSTED],[DATE_SEND],[SEND_EMAIL]) VALUES('{item.SubItems[2].Text}','{item.SubItems[1].Text}','{SaveAttachment}','{FileAttachment}',0,Now(),'{SEND_EMAIL}')");
+
+                        string Email = getTextEmail(item.SubItems[1].Text);
+
+                        string FileAttachment = this.pathFile + @"\" + item.SubItems[2].Text + $"[{item.SubItems[1].Text}].pdf"; // original
+                        string FileAttachment2 = this.pathFile + @"\" + item.SubItems[2].Text + $"[{Email}].pdf"; // original but must store
+
+                        string SaveAttachment = saveFile + @"\" + item.SubItems[2].Text + ".pdf"; // rename
+                        File.Move(FileAttachment, SaveAttachment); // transfer
+                
+
+                        AccessDatabase.ExecuteNonQuery($@"INSERT INTO [fileSend] ([PO_NUMBER],[EMAIL_ADDRESS],[SAVE_PATH],[SOURCE_PATH],[POSTED],[DATE_SEND],[SEND_EMAIL]) VALUES('{item.SubItems[2].Text}','{Email}','{SaveAttachment}','{FileAttachment2}',0,Now(),'{SEND_EMAIL}')");
                         Application.DoEvents();
 
                     }
@@ -95,7 +105,10 @@ namespace FSS
             {
                 if (item.Checked == true)
                 {
-                    AccessDatabase.ExecuteNonQuery($"UPDATE [fileSend] set [POSTED] = 0,[DATE_SEND]=Now(),[SEND_EMAIL]='{SEND_EMAIL}' WHERE [ID] = {item.SubItems[2].Text} ");
+
+                    string Email = getTextEmail(item.Text);
+
+                    AccessDatabase.ExecuteNonQuery($"UPDATE [fileSend] set [POSTED] = 0,[DATE_SEND]=Now(),[SEND_EMAIL]='{SEND_EMAIL}',[EMAIL_ADDRESS]='{Email}' WHERE [ID] = {item.SubItems[2].Text} ");
                 }
 
             }
@@ -162,22 +175,23 @@ namespace FSS
 
                 string emailAddress = (string)data["EmailAddress"];
                 string emailPassword = (string)data["EmailPassword"];
-         
+
                 DialogResult result = MessageBox.Show($"Are you sure you want to send this file?", "Message Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     return;
                 }
-            
+
                 if (this.reSend == false)
                 {
                     getAttach(emailAddress);
-                }else
+                }
+                else
                 {
                     getResend(emailAddress);
                 }
-                
-                EmailHasChange();
+
+                //EmailHasChange();
 
                 lblPleaseWait.Visible = true;
                 this.UseWaitCursor = true;
@@ -202,5 +216,109 @@ namespace FSS
             lblPleaseWait.Visible = false;
             this.UseWaitCursor = false;
         }
+        public void generateEmailDestination()
+        {   
+            int IndexId = 0;
+            int P = 25;
+            int H = 0;
+            pnlMain.Controls.Clear();
+            int PO_FILE_TOTAL = 0;
+            string tmpEmail = "";
+            foreach (ListViewItem item in lvFiles.Items)
+            {
+                if (item.Checked == true)
+                {
+                    if (tmpEmail != item.SubItems[reSend ? 0 : 1].Text)
+                    {
+                        PO_FILE_TOTAL = 1;
+                        Label lblNew = new Label();
+                        lblNew.Name = $"lbl{IndexId}";
+                        lblNew.Text = PO_FILE_TOTAL.ToString();
+                        lblNew.Size = new Size(70, 23);
+                        lblNew.TextAlign = ContentAlignment.MiddleCenter;
+                        lblNew.Location = new Point(3, H);
+                        pnlMain.Controls.Add(lblNew);
+
+                        TextBox txtBox = new TextBox();
+                        txtBox.Name = $"txt{IndexId}";
+                        txtBox.Text = item.SubItems[reSend ? 0 :1].Text;
+                        txtBox.Size = new Size(282, 23);
+                        txtBox.Location = new Point(82, H);
+                        pnlMain.Controls.Add(txtBox);
+                        H = H + P;
+
+                        IndexId++;
+                    }
+                    else
+                    {
+                        Label lbl = pnlMain.Controls.Find($"lbl{IndexId - 1}", true).FirstOrDefault() as Label;
+                        PO_FILE_TOTAL++;
+                        lbl.Text = PO_FILE_TOTAL.ToString();
+                    }
+
+                    tmpEmail = item.SubItems[reSend ? 0 : 1].Text;
+                }
+
+
+            }
+
+        }
+        public string getTextEmail(string CurrentEmail)
+        {
+            int IndexId = 0;
+            string tmpEmail = "";
+            foreach (ListViewItem item in lvFiles.Items)
+            {
+                if (item.Checked == true)
+                {
+                    if (tmpEmail != (reSend ? item.Text :  item.SubItems[1].Text))
+                    {
+                        TextBox txt = pnlMain.Controls.Find($"txt{IndexId}", true).FirstOrDefault() as TextBox;
+                        if ((reSend ? item.Text : item.SubItems[1].Text) == CurrentEmail)
+                        {
+                            return txt.Text; // if got change
+                        }
+                        IndexId++;
+                    }
+
+                    tmpEmail = (reSend ? item.Text : item.SubItems[1].Text);
+                }
+            }
+
+            return "";
+        }
+
+
+        public void LoadByHistory(DataTable dtFile)
+        {   
+            int IndexId = 0;
+            int P = 25;
+            int H = 0;
+            pnlMain.Controls.Clear();
+            foreach (DataRow fileRow in dtFile.Rows)
+            {
+                Label lblNew = new Label();
+                lblNew.Name = $"lbl{IndexId}";
+                lblNew.Text = fileRow["NO_PO"].ToString();
+                lblNew.Size = new Size(70, 23);
+                lblNew.TextAlign = ContentAlignment.MiddleCenter;
+                lblNew.Location = new Point(3, H);
+                pnlMain.Controls.Add(lblNew);
+
+                TextBox txtBox = new TextBox();
+                txtBox.Name = $"txt{IndexId}";
+                txtBox.Text = fileRow["EMAIL_ADDRESS"].ToString();
+                txtBox.Size = new Size(282, 23);
+                txtBox.Location = new Point(82, H);
+                pnlMain.Controls.Add(txtBox);
+
+                H = H + P;
+
+                IndexId++;
+
+
+            }
+        }
     }
+
 }

@@ -132,6 +132,7 @@
     <Compile Include="Class\ClsPurchaseReq.cs" />
     <Compile Include="Class\ClsQuery.cs" />
     <Compile Include="Class\ClsSupplier.cs" />
+    <Compile Include="Class\ConfigFile.cs" />
     <Compile Include="Class\ConfigReader.cs" />
     <Compile Include="Class\DatabaseHelper.cs" />
     <Compile Include="Class\Encryptor.cs" />
@@ -203,6 +204,12 @@
     </Compile>
     <Compile Include="Forms\FrmConnectionSetup.Designer.cs">
       <DependentUpon>FrmConnectionSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmFirstSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFirstSetup.Designer.cs">
+      <DependentUpon>FrmFirstSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmLoading.cs">
       <SubType>Form</SubType>
@@ -329,6 +336,9 @@
     <EmbeddedResource Include="Forms\FrmConnectionSetup.resx">
       <DependentUpon>FrmConnectionSetup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmFirstSetup.resx">
+      <DependentUpon>FrmFirstSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +417,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="po.ico" />
+    <Content Include="data.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\lock1.png" />
     <None Include="Resources\lock.png" />
     <None Include="Resources\tech_background.jpg" />
@@ -429,5 +442,6 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

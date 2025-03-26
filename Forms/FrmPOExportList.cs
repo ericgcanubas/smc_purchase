@@ -61,10 +61,6 @@ namespace PurchasePrinting.Forms
                 return;
             }
 
-
-
-
-          
             try
             {
 
@@ -142,11 +138,11 @@ namespace PurchasePrinting.Forms
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace((string)firstRecord["eMailAddress"]))
-            {
-                MessageBox.Show(this, $"Supplier Email not set", "System message", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace((string)firstRecord["eMailAddress"]))
+            //{
+            //    MessageBox.Show(this, $"Supplier Email not set", "System message", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //    return;
+            //}
 
 
             // Get today's date in YYYY-MM-DD format
@@ -160,9 +156,19 @@ namespace PurchasePrinting.Forms
                 Directory.CreateDirectory(supplierDirectory);
             }
 
-            string fileName = PO + $"[{(string)firstRecord["eMailAddress"]}].pdf";
-            string exportPath = Path.Combine(supplierDirectory, fileName);
 
+            string fileName = "";
+
+            if ((string)firstRecord["eMailAddress"] == string.Empty)
+            {
+                fileName = PO + ".pdf";
+                // no emailS
+            }
+            else
+            {
+                fileName = PO + $"[{(string)firstRecord["eMailAddress"]}].pdf";
+            }
+            string exportPath = Path.Combine(supplierDirectory, fileName);
             // Export the report to PDF
             reportDocument.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, exportPath);
             Application.DoEvents();

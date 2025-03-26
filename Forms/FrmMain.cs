@@ -1,4 +1,5 @@
-﻿using PurchasePrinting.Forms;
+﻿using PurchasePrinting.Class;
+using PurchasePrinting.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,25 +48,28 @@ namespace PurchasePrinting
 
 
         }
-
+ 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-           
 
-            if(File.Exists("data.accdb") == true)
-            {
+       
+
+           ConfigFile.AutoCreateFile();
+
+            //if(File.Exists("data.accdb") == true)
+            //{
         
-                emailToolStripMenuItem.Visible = true;
-                purchasesToolStripMenuItem.Visible = false;
-                optionToolStripMenuItem.Visible = false;
-            }
-            else
-            {
-                emailToolStripMenuItem.Visible = false;
-                purchasesToolStripMenuItem.Visible = true;
-                optionToolStripMenuItem.Visible = true;
+            //    emailToolStripMenuItem.Visible = true;
+            //    purchasesToolStripMenuItem.Visible = false;
+            //    optionToolStripMenuItem.Visible = false;
+            //}
+            //else
+            //{
+            //    emailToolStripMenuItem.Visible = false;
+            //    purchasesToolStripMenuItem.Visible = true;
+            //    optionToolStripMenuItem.Visible = true;
              
-            }
+            //}
 
         //    emailToolStripMenuItem.Visible = _localDataExists;
     

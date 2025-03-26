@@ -64,28 +64,28 @@
             this.pOExportToolStripMenuItem,
             this.pOExportToolStripMenuItem1});
             this.purchasesToolStripMenuItem.Name = "purchasesToolStripMenuItem";
-            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.purchasesToolStripMenuItem.Text = "&Purchase";
+            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.purchasesToolStripMenuItem.Text = "&Print && Export";
             // 
             // pRBatchPrintingToolStripMenuItem
             // 
             this.pRBatchPrintingToolStripMenuItem.Name = "pRBatchPrintingToolStripMenuItem";
-            this.pRBatchPrintingToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.pRBatchPrintingToolStripMenuItem.Text = "Purchase &Requisition (PR)";
+            this.pRBatchPrintingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pRBatchPrintingToolStripMenuItem.Text = "Print PR";
             this.pRBatchPrintingToolStripMenuItem.Click += new System.EventHandler(this.pRBatchPrintingToolStripMenuItem_Click);
             // 
             // pOExportToolStripMenuItem
             // 
             this.pOExportToolStripMenuItem.Name = "pOExportToolStripMenuItem";
-            this.pOExportToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.pOExportToolStripMenuItem.Text = "Purchase &Order (PO)";
+            this.pOExportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pOExportToolStripMenuItem.Text = "Print PO";
             this.pOExportToolStripMenuItem.Click += new System.EventHandler(this.pOExportToolStripMenuItem_Click);
             // 
             // pOExportToolStripMenuItem1
             // 
             this.pOExportToolStripMenuItem1.Name = "pOExportToolStripMenuItem1";
-            this.pOExportToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
-            this.pOExportToolStripMenuItem1.Text = "PO Export";
+            this.pOExportToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.pOExportToolStripMenuItem1.Text = "Export PO";
             this.pOExportToolStripMenuItem1.Click += new System.EventHandler(this.pOExportToolStripMenuItem1_Click);
             // 
             // optionToolStripMenuItem
@@ -100,14 +100,14 @@
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.connectionToolStripMenuItem.Text = "Connection";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
             // directoryFileToolStripMenuItem
             // 
             this.directoryFileToolStripMenuItem.Name = "directoryFileToolStripMenuItem";
-            this.directoryFileToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.directoryFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.directoryFileToolStripMenuItem.Text = "Directory File";
             this.directoryFileToolStripMenuItem.Click += new System.EventHandler(this.directoryFileToolStripMenuItem_Click);
             // 
@@ -125,29 +125,28 @@
             // fileSenderToolStripMenuItem
             // 
             this.fileSenderToolStripMenuItem.Name = "fileSenderToolStripMenuItem";
-            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.fileSenderToolStripMenuItem.Text = "File Sender";
             this.fileSenderToolStripMenuItem.Click += new System.EventHandler(this.fileSenderToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.settingsToolStripMenuItem.Text = "Configuration";
-            this.settingsToolStripMenuItem.Visible = false;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // emailSetupToolStripMenuItem
             // 
             this.emailSetupToolStripMenuItem.Name = "emailSetupToolStripMenuItem";
-            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.emailSetupToolStripMenuItem.Text = "Email Setup";
             this.emailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
             // 
             // userListToolStripMenuItem
             // 
             this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.userListToolStripMenuItem.Text = "User List";
             this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
             // 

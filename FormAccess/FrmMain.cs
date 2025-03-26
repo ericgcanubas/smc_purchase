@@ -67,22 +67,35 @@ namespace EmailSenderToSupplier
 
         private void ReadPdf()
         {
-            int row = 0;
+      
             lvFiles.Items.Clear(); // Clear existing items
             if (Directory.Exists(txtPath.Text))
             {
 
                 string[] pdf_files = Directory.GetFiles(txtPath.Text, "*.pdf"); //
+                var pdfList = new List<Tuple<string, string, string>>();
                 foreach (string pdf in pdf_files)
                 {
-                    row++;
-                    // Display only folder names
-                    ListViewItem item = new ListViewItem(row.ToString()); // Adjust column names
+
                     string PO = OtherHelper.getPO(Path.GetFileName(pdf));
                     string Email = OtherHelper.getEmail(Path.GetFileName(pdf));
+                    pdfList.Add(new Tuple<string, string, string>(Email, PO, pdf));
+
+         
+                }
+
+                pdfList = pdfList.OrderBy(x => x.Item1).ToList();
+
+                lvFiles.Items.Clear();
+
+                int row = 0;
+                foreach (var pdf in pdfList)
+                {
+                    row++;
+                    ListViewItem item = new ListViewItem(row.ToString());
                     item.Checked = true;
-                    item.SubItems.Add(Email);
-                    item.SubItems.Add(PO);
+                    item.SubItems.Add(pdf.Item1);
+                    item.SubItems.Add(pdf.Item2);
                     lvFiles.Items.Add(item);
                 }
             }

@@ -21,11 +21,11 @@ namespace PurchasePrinting.Class
             {
                 using (OdbcConnection conn = DatabaseHelper.GetConnection())
                 {
-                    string query = $"SELECT TOP 1 {column} FROM {table} WHERE {column} = @value";
+                    string query = $"SELECT TOP 1 {column} FROM {table} WHERE {column} = '{value}'";
 
                     using (OdbcCommand cmd = new OdbcCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@value", value);
+                   
                         conn.Open();
 
                         using (OdbcDataReader reader = cmd.ExecuteReader())
@@ -38,8 +38,9 @@ namespace PurchasePrinting.Class
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+            
                 return false;
             }
 
