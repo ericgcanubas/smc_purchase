@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,16 +16,6 @@ namespace PurchasePrinting.Forms
 
     public partial class FrmFirstSetup : Form
     {
-
-        // Import the SQLConfigDataSource function from the odbcinst library
-        [DllImport("odbcinst.dll", CharSet = CharSet.Ansi, SetLastError = true)]
-        private static extern bool SQLConfigDataSource(
-            IntPtr hwndParent,
-            int fRequest,
-            string lpszDriver,
-            string lpszAttributes);
-
-
         bool testConnection = false;
         public FrmFirstSetup()
         {
@@ -85,52 +74,37 @@ namespace PurchasePrinting.Forms
             }
         }
 
-
+        // Import the SQLConfigDataSource function from the odbcinst library
 
 
         private void MakeDSN(string DSN)
         {
 
-            // DSN details
-            string dsnName = DSN; // The name of the DSN
-            string driverName = "SQL Server"; // ODBC driver name (as shown in ODBC Data Source Admin)
-            string serverName = DSN; // SQL Server instance name or IP
-            string databaseName = "Pegasus"; // Target database name
-            string username = "sa"; // SQL login username
-            string password = ""; // SQL login password
+            string dsnName = "SMC2000"; // DSN Name
+            string driver = "SQL Server"; // Must match ODBC driver list
+            string server = "SMC2000"; // Your SQL Server name
+            string database = "Pegasus"; // Target database
+            string username = "sa"; // SQL Server login
+            string password = ""; // SQL Server password
+
+            // Ensure the DSN command is formatted correctly
+            string command = $@"odbcconf.exe /a {{CONFIGSYSDSN ""{driver}"" ""DSN={dsnName}|Server={server}|Database={database}|UID={username}|PWD={password}""}}";
 
             try
             {
-                // Path to the system DSN registry key
-                string dsnRegistryPath = @"SOFTWARE\ODBC\ODBC.INI\" + dsnName;
-                string odbcDataSourcesPath = @"SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources";
+                Process process = new Process();
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.Arguments = $"/C {command}";
+                process.StartInfo.Verb = "runas"; // Run as Administrator
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                process.Start();
+                process.WaitForExit();
 
-                // Create the DSN registry key
-                RegistryKey dsnKey = Registry.LocalMachine.CreateSubKey(dsnRegistryPath);
-                if (dsnKey != null)
-                {
-                    dsnKey.SetValue("Driver", $@"C:\WINDOWS\System32\SQLSRV32.dll"); // Path to the driver
-                    dsnKey.SetValue("Server", serverName);
-                    dsnKey.SetValue("Database", databaseName);
-                    dsnKey.SetValue("Trusted_Connection", "No"); // Set to "Yes" for Windows Authentication
-                    dsnKey.SetValue("UID", username);
-                    dsnKey.SetValue("PWD", password); // Warning: Password will be stored in plaintext
-                    dsnKey.Close();
-                }
-
-                // Register the DSN in ODBC Data Sources
-                RegistryKey odbcKey = Registry.LocalMachine.CreateSubKey(odbcDataSourcesPath);
-                if (odbcKey != null)
-                {
-                    odbcKey.SetValue(dsnName, driverName);
-                    odbcKey.Close();
-                }
-
-                Console.WriteLine("DSN created successfully.");
+                Console.WriteLine("System DSN created successfully with SQL Authentication!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error creating DSN: " + ex.Message);
             }
 
         }
