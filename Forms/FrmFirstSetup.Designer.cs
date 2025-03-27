@@ -230,6 +230,7 @@
             this.Name = "FrmFirstSetup";
             this.ShowIcon = false;
             this.Text = "First Time Setup";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFirstSetup_FormClosing);
             this.Load += new System.EventHandler(this.FrmFirstSetup_Load);
             this.grpPrint.ResumeLayout(false);
             this.grpPrint.PerformLayout();

@@ -14,10 +14,12 @@ using System.Windows.Forms;
 
 namespace PurchasePrinting.Forms
 {
-
+   
 
     public partial class FrmFirstSetup : Form
     {
+
+       private bool isClose;
         bool testConnection = false;
         public FrmFirstSetup()
         {
@@ -26,7 +28,8 @@ namespace PurchasePrinting.Forms
 
         private void FrmFirstSetup_Load(object sender, EventArgs e)
         {
-
+            txtServer.Text = "SMC2000";
+            isClose = true;
         }
 
         private void chkPrint_CheckedChanged(object sender, EventArgs e)
@@ -137,6 +140,7 @@ namespace PurchasePrinting.Forms
                 if (testConnection == false)
                 {
                     MessageBox.Show("Test connection success is required", "System setup");
+                    return;
                 }
             }
 
@@ -167,6 +171,7 @@ namespace PurchasePrinting.Forms
 
 
             makeConfig();
+            isClose = false;
             Close();
 
 
@@ -247,6 +252,11 @@ namespace PurchasePrinting.Forms
 
             }
             //MessageBox.Show("Test connection success");
+        }
+
+        private void FrmFirstSetup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = isClose;
         }
     }
 }

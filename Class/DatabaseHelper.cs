@@ -28,7 +28,7 @@ namespace PurchasePrinting
 
             // Build the connection string
             var server = config["Server"];
-            var database = config["Database"];
+            //var database = config["Database"];
             // var connectionString = $"Data Source={server};Initial Catalog={database};User ID=sa;Password=";
             var connectionString = $"DSN={server};UID=sa;PWD=;";
             return new OdbcConnection(connectionString);
