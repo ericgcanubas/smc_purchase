@@ -26,9 +26,7 @@ namespace EmailSenderToSupplier
         }
         private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmPathSettings frm = new FrmPathSettings();
-            frm.ShowDialog();
-            frm.Dispose();
+          
 
             loadDirectory();
         }

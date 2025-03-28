@@ -44,6 +44,7 @@
             this.txtFileTransfer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.grpPrint.SuspendLayout();
             this.grpEmail.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -52,25 +53,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 27);
+            this.label1.Location = new System.Drawing.Point(10, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 16);
+            this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Server name:";
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(104, 26);
+            this.txtServer.Location = new System.Drawing.Point(104, 28);
             this.txtServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(188, 23);
+            this.txtServer.Size = new System.Drawing.Size(188, 25);
             this.txtServer.TabIndex = 4;
             // 
             // chkPrint
             // 
             this.chkPrint.AutoSize = true;
             this.chkPrint.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPrint.Location = new System.Drawing.Point(18, 11);
+            this.chkPrint.Location = new System.Drawing.Point(18, 12);
             this.chkPrint.Name = "chkPrint";
             this.chkPrint.Size = new System.Drawing.Size(132, 20);
             this.chkPrint.TabIndex = 6;
@@ -82,7 +83,7 @@
             // 
             this.chkEmailSender.AutoSize = true;
             this.chkEmailSender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEmailSender.Location = new System.Drawing.Point(20, 107);
+            this.chkEmailSender.Location = new System.Drawing.Point(20, 97);
             this.chkEmailSender.Name = "chkEmailSender";
             this.chkEmailSender.Size = new System.Drawing.Size(109, 20);
             this.chkEmailSender.TabIndex = 7;
@@ -96,17 +97,17 @@
             this.grpPrint.Controls.Add(this.txtServer);
             this.grpPrint.Controls.Add(this.label1);
             this.grpPrint.Enabled = false;
-            this.grpPrint.Location = new System.Drawing.Point(12, 14);
+            this.grpPrint.Location = new System.Drawing.Point(12, 15);
             this.grpPrint.Name = "grpPrint";
-            this.grpPrint.Size = new System.Drawing.Size(488, 60);
+            this.grpPrint.Size = new System.Drawing.Size(488, 64);
             this.grpPrint.TabIndex = 8;
             this.grpPrint.TabStop = false;
             // 
             // btnTestConnection
             // 
-            this.btnTestConnection.Location = new System.Drawing.Point(299, 26);
+            this.btnTestConnection.Location = new System.Drawing.Point(295, 28);
             this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(122, 23);
+            this.btnTestConnection.Size = new System.Drawing.Size(122, 24);
             this.btnTestConnection.TabIndex = 10;
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
@@ -119,17 +120,17 @@
             this.grpEmail.Controls.Add(this.txtFileTransfer);
             this.grpEmail.Controls.Add(this.label2);
             this.grpEmail.Enabled = false;
-            this.grpEmail.Location = new System.Drawing.Point(13, 110);
+            this.grpEmail.Location = new System.Drawing.Point(13, 100);
             this.grpEmail.Name = "grpEmail";
-            this.grpEmail.Size = new System.Drawing.Size(487, 176);
+            this.grpEmail.Size = new System.Drawing.Size(487, 187);
             this.grpEmail.TabIndex = 9;
             this.grpEmail.TabStop = false;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(405, 42);
+            this.btnBrowse.Location = new System.Drawing.Point(405, 45);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(74, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(74, 24);
             this.btnBrowse.TabIndex = 9;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -141,9 +142,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Controls.Add(this.txtUsername);
-            this.groupBox3.Location = new System.Drawing.Point(12, 75);
+            this.groupBox3.Location = new System.Drawing.Point(12, 80);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(300, 86);
+            this.groupBox3.Size = new System.Drawing.Size(300, 91);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Set a administrator account";
@@ -152,9 +153,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(9, 54);
+            this.label4.Location = new System.Drawing.Point(9, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.Size = new System.Drawing.Size(71, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Password :";
             // 
@@ -162,73 +163,85 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(9, 26);
+            this.label3.Location = new System.Drawing.Point(9, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Username :";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(91, 51);
+            this.txtPassword.Location = new System.Drawing.Point(91, 54);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(188, 23);
+            this.txtPassword.Size = new System.Drawing.Size(188, 25);
             this.txtPassword.TabIndex = 6;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(91, 23);
+            this.txtUsername.Location = new System.Drawing.Point(91, 24);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(188, 23);
+            this.txtUsername.Size = new System.Drawing.Size(188, 25);
             this.txtUsername.TabIndex = 5;
             // 
             // txtFileTransfer
             // 
-            this.txtFileTransfer.Location = new System.Drawing.Point(12, 42);
+            this.txtFileTransfer.Location = new System.Drawing.Point(12, 45);
             this.txtFileTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtFileTransfer.Name = "txtFileTransfer";
-            this.txtFileTransfer.Size = new System.Drawing.Size(390, 23);
+            this.txtFileTransfer.Size = new System.Drawing.Size(390, 25);
             this.txtFileTransfer.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 23);
+            this.label2.Location = new System.Drawing.Point(6, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(327, 16);
+            this.label2.Size = new System.Drawing.Size(336, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Choose a destination folder for completed file transfers.";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(414, 298);
+            this.btnDone.Location = new System.Drawing.Point(322, 304);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(86, 24);
+            this.btnDone.Size = new System.Drawing.Size(86, 26);
             this.btnDone.TabIndex = 10;
             this.btnDone.Text = "OK";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(414, 304);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(86, 26);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FrmFirstSetup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 333);
+            this.ClientSize = new System.Drawing.Size(512, 341);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.chkEmailSender);
             this.Controls.Add(this.grpEmail);
             this.Controls.Add(this.chkPrint);
             this.Controls.Add(this.grpPrint);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmFirstSetup";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "First Time Setup";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFirstSetup_FormClosing);
             this.Load += new System.EventHandler(this.FrmFirstSetup_Load);
@@ -261,5 +274,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

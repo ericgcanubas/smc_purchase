@@ -129,14 +129,6 @@ namespace FSS
                 }
             }
         }
-
-        private void EmailHasChange()
-        {
-            DataTable dt = AccessDatabase.dataList("select COUNT(*) as [NO_PO],[EMAIL_ADDRESS] from [fileSend] where [posted] = 0 group by [EMAIL_ADDRESS] ");
-            FrmConfirmation frm = new FrmConfirmation(dt);
-            frm.ShowDialog();
-            frm.Dispose();
-        }
         private List<string> getAttachFile(string SENT_EMAIL)
         {
             List<string> saveFiles = new List<string>();

@@ -49,7 +49,16 @@ namespace PurchasePrinting
 
       
            ConfigFile.AutoCreateFile();
-           MenuSetup();
+            try
+            {
+                MenuSetup();
+            }
+            catch (Exception)
+            {
+
+                Application.Exit();
+            }
+       
 
 
         }

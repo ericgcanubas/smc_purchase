@@ -38,7 +38,7 @@ namespace PurchasePrinting.Class
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             
                 return false;

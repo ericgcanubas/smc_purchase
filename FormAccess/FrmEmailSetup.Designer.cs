@@ -62,7 +62,7 @@
             this.lvEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvEmail.MultiSelect = false;
             this.lvEmail.Name = "lvEmail";
-            this.lvEmail.Size = new System.Drawing.Size(310, 271);
+            this.lvEmail.Size = new System.Drawing.Size(314, 271);
             this.lvEmail.TabIndex = 6;
             this.lvEmail.UseCompatibleStateImageBehavior = false;
             this.lvEmail.View = System.Windows.Forms.View.Details;

@@ -49,10 +49,10 @@
             // 
             this.cmbEmail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmail.FormattingEnabled = true;
-            this.cmbEmail.Location = new System.Drawing.Point(9, 37);
+            this.cmbEmail.Location = new System.Drawing.Point(8, 37);
             this.cmbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbEmail.Name = "cmbEmail";
-            this.cmbEmail.Size = new System.Drawing.Size(373, 24);
+            this.cmbEmail.Size = new System.Drawing.Size(374, 24);
             this.cmbEmail.TabIndex = 12;
             // 
             // label4

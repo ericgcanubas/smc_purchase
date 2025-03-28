@@ -72,9 +72,16 @@ namespace FSS
         {
             if (lvEmail.Items.Count > 0)
             {
-               int ID = int.Parse(lvEmail.FocusedItem.Text);
-                AccessDatabase.ExecuteNonQuery($"DELETE FROM [email] WHERE [ID] = {ID} ");
-                DisplayEmail();
+
+                lvEmail.Select();
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete?", "Delete confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    int ID = int.Parse(lvEmail.FocusedItem.Text);
+                    AccessDatabase.ExecuteNonQuery($"DELETE FROM [email] WHERE [ID] = {ID} ");
+                    DisplayEmail();
+                }
+             
             }
         }
 

@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace PurchasePrinting.Forms
 {
-   
+
 
     public partial class FrmFirstSetup : Form
     {
 
-       private bool isClose;
+        private bool isClose;
         bool testConnection = false;
         public FrmFirstSetup()
         {
@@ -257,6 +257,13 @@ namespace PurchasePrinting.Forms
         private void FrmFirstSetup_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = isClose;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            isClose = false;
+            Environment.Exit(0);
+
         }
     }
 }

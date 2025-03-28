@@ -34,18 +34,18 @@
             this.PO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DateSend1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dtDATE = new System.Windows.Forms.DateTimePicker();
             this.btnReSend = new System.Windows.Forms.Button();
             this.lblRecord = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 18);
+            this.label1.Location = new System.Drawing.Point(14, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.Size = new System.Drawing.Size(91, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Date Process :";
             // 
@@ -59,13 +59,14 @@
             this.PK,
             this.DateSend1,
             this.columnHeader1});
+            this.lvFiles.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvFiles.ForeColor = System.Drawing.Color.Lime;
             this.lvFiles.FullRowSelect = true;
             this.lvFiles.HideSelection = false;
-            this.lvFiles.Location = new System.Drawing.Point(14, 47);
+            this.lvFiles.Location = new System.Drawing.Point(14, 50);
             this.lvFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(694, 330);
+            this.lvFiles.Size = new System.Drawing.Size(694, 350);
             this.lvFiles.TabIndex = 17;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
@@ -90,24 +91,28 @@
             this.DateSend1.Text = "Date Process";
             this.DateSend1.Width = 222;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Username";
+            this.columnHeader1.Width = 120;
+            // 
             // dtDATE
             // 
             this.dtDATE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDATE.Location = new System.Drawing.Point(111, 16);
+            this.dtDATE.Location = new System.Drawing.Point(111, 17);
             this.dtDATE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtDATE.Name = "dtDATE";
             this.dtDATE.ShowCheckBox = true;
-            this.dtDATE.Size = new System.Drawing.Size(146, 23);
+            this.dtDATE.Size = new System.Drawing.Size(146, 25);
             this.dtDATE.TabIndex = 18;
             this.dtDATE.ValueChanged += new System.EventHandler(this.dtDATE_ValueChanged);
             // 
             // btnReSend
             // 
-            this.btnReSend.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReSend.Location = new System.Drawing.Point(614, 383);
+            this.btnReSend.Location = new System.Drawing.Point(614, 407);
             this.btnReSend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReSend.Name = "btnReSend";
-            this.btnReSend.Size = new System.Drawing.Size(92, 26);
+            this.btnReSend.Size = new System.Drawing.Size(92, 28);
             this.btnReSend.TabIndex = 19;
             this.btnReSend.Text = "Re-send";
             this.btnReSend.UseVisualStyleBackColor = true;
@@ -116,29 +121,23 @@
             // lblRecord
             // 
             this.lblRecord.AutoSize = true;
-            this.lblRecord.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecord.Location = new System.Drawing.Point(14, 388);
+            this.lblRecord.Location = new System.Drawing.Point(14, 412);
             this.lblRecord.Name = "lblRecord";
-            this.lblRecord.Size = new System.Drawing.Size(75, 16);
+            this.lblRecord.Size = new System.Drawing.Size(68, 17);
             this.lblRecord.TabIndex = 20;
             this.lblRecord.Text = "Record : 0";
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Username";
-            this.columnHeader1.Width = 120;
-            // 
             // FrmHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 416);
+            this.ClientSize = new System.Drawing.Size(718, 442);
             this.Controls.Add(this.lblRecord);
             this.Controls.Add(this.btnReSend);
             this.Controls.Add(this.dtDATE);
             this.Controls.Add(this.lvFiles);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;

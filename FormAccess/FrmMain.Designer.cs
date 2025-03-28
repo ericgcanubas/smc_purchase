@@ -46,10 +46,10 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(12, 454);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 482);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(69, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(69, 30);
             this.btnRefresh.TabIndex = 6;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 362);
+            this.label5.Location = new System.Drawing.Point(423, 385);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 16);
+            this.label5.Size = new System.Drawing.Size(0, 17);
             this.label5.TabIndex = 14;
             // 
             // lvFiles
@@ -74,10 +74,10 @@
             this.lvFiles.ForeColor = System.Drawing.Color.Lime;
             this.lvFiles.FullRowSelect = true;
             this.lvFiles.HideSelection = false;
-            this.lvFiles.Location = new System.Drawing.Point(12, 72);
+            this.lvFiles.Location = new System.Drawing.Point(12, 76);
             this.lvFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(573, 376);
+            this.lvFiles.Size = new System.Drawing.Size(573, 399);
             this.lvFiles.TabIndex = 16;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
@@ -100,10 +100,10 @@
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(11, 35);
+            this.txtPath.Location = new System.Drawing.Point(11, 37);
             this.txtPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(493, 23);
+            this.txtPath.Size = new System.Drawing.Size(493, 25);
             this.txtPath.TabIndex = 17;
             this.txtPath.TextChanged += new System.EventHandler(this.txtPath_TextChanged);
             this.txtPath.DoubleClick += new System.EventHandler(this.txtPath_DoubleClick);
@@ -111,10 +111,10 @@
             // 
             // btnBrowseSource
             // 
-            this.btnBrowseSource.Location = new System.Drawing.Point(510, 34);
+            this.btnBrowseSource.Location = new System.Drawing.Point(510, 36);
             this.btnBrowseSource.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrowseSource.Name = "btnBrowseSource";
-            this.btnBrowseSource.Size = new System.Drawing.Size(73, 24);
+            this.btnBrowseSource.Size = new System.Drawing.Size(73, 26);
             this.btnBrowseSource.TabIndex = 19;
             this.btnBrowseSource.Text = "Browse";
             this.btnBrowseSource.UseVisualStyleBackColor = true;
@@ -123,19 +123,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 17);
+            this.label1.Location = new System.Drawing.Point(11, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.Size = new System.Drawing.Size(71, 17);
             this.label1.TabIndex = 20;
             this.label1.Text = "Source File";
             // 
             // btnSend
             // 
-            this.btnSend.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(475, 454);
+            this.btnSend.Location = new System.Drawing.Point(475, 482);
             this.btnSend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(111, 28);
+            this.btnSend.Size = new System.Drawing.Size(111, 30);
             this.btnSend.TabIndex = 21;
             this.btnSend.Text = "Proceed";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -143,10 +142,10 @@
             // 
             // btnHistory
             // 
-            this.btnHistory.Location = new System.Drawing.Point(87, 454);
+            this.btnHistory.Location = new System.Drawing.Point(87, 482);
             this.btnHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(69, 28);
+            this.btnHistory.Size = new System.Drawing.Size(69, 30);
             this.btnHistory.TabIndex = 22;
             this.btnHistory.Text = "History";
             this.btnHistory.UseVisualStyleBackColor = true;
@@ -158,9 +157,9 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 495);
+            this.ClientSize = new System.Drawing.Size(595, 526);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.label1);
@@ -169,7 +168,7 @@
             this.Controls.Add(this.lvFiles);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnRefresh);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
