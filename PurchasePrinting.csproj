@@ -133,6 +133,7 @@
     <Compile Include="Class\ConfigReader.cs" />
     <Compile Include="Class\DatabaseHelper.cs" />
     <Compile Include="Class\Encryptor.cs" />
+    <Compile Include="Class\MessageHelper.cs" />
     <Compile Include="Class\MiscHelper.cs" />
     <Compile Include="Class\SqlHelper.cs" />
     <Compile Include="Class\UserDirectory.cs" />

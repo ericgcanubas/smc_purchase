@@ -20,10 +20,7 @@ namespace PurchasePrinting.Class
 
                 FrmFirstSetup frm = new FrmFirstSetup();
                 frm.ShowDialog();
-                frm.Dispose();
-
-
-             
+                frm.Dispose();    
             }
             else
             {

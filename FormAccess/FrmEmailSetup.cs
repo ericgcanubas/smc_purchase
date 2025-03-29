@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PurchasePrinting.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,14 +75,15 @@ namespace FSS
             {
 
                 lvEmail.Select();
-                DialogResult result = MessageBox.Show($"Are you sure you want to delete?", "Delete confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No)
+
+                if (MessageHelper.MessageQuestion("Are you sure you want to delete?", "Delete confirmation") == true)
                 {
                     int ID = int.Parse(lvEmail.FocusedItem.Text);
                     AccessDatabase.ExecuteNonQuery($"DELETE FROM [email] WHERE [ID] = {ID} ");
                     DisplayEmail();
                 }
-             
+
+
             }
         }
 
@@ -100,7 +102,7 @@ namespace FSS
             {
                 Close();
             }
-          
+
             frm.Dispose();
 
 

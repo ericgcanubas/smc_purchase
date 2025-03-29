@@ -58,11 +58,11 @@
             this.lvEmail.GridLines = true;
             this.lvEmail.HideSelection = false;
             this.lvEmail.HoverSelection = true;
-            this.lvEmail.Location = new System.Drawing.Point(14, 11);
+            this.lvEmail.Location = new System.Drawing.Point(12, 11);
             this.lvEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvEmail.MultiSelect = false;
             this.lvEmail.Name = "lvEmail";
-            this.lvEmail.Size = new System.Drawing.Size(314, 271);
+            this.lvEmail.Size = new System.Drawing.Size(308, 271);
             this.lvEmail.TabIndex = 6;
             this.lvEmail.UseCompatibleStateImageBehavior = false;
             this.lvEmail.View = System.Windows.Forms.View.Details;
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 326);
+            this.ClientSize = new System.Drawing.Size(331, 326);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lvEmail);
