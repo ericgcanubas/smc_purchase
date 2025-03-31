@@ -16,8 +16,8 @@ namespace PurchasePrinting
 {
     public partial class FrmMain : Form
     {
-    
-    
+
+
         public bool isLogin = false;
         public FrmMain()
         {
@@ -28,27 +28,35 @@ namespace PurchasePrinting
         private void pRBatchPrintingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if(isLogin == false)
+            if (MiscHelper.IsInternetAvailable() == true)
+            {
+                MessageBox.Show("Internet connection should be disabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (isLogin == false)
             {
 
                 tryToLogin();
-                if(isLogin == false)
+                if (isLogin == false)
                 {
                     return;
                 }
             }
+
+     
 
             FrmPRBatchPrinting frmPRBatchPrinting = new FrmPRBatchPrinting(true, false);
             ClsForm.OpenChild(frmPRBatchPrinting);
 
 
         }
- 
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
-      
-           ConfigFile.AutoCreateFile();
+
+            ConfigFile.AutoCreateFile();
             try
             {
                 MenuSetup();
@@ -58,20 +66,20 @@ namespace PurchasePrinting
 
                 Application.Exit();
             }
-       
+
 
 
         }
         private void MenuSetup()
         {
-           var Mode = ClsMode.getMode();
+            var Mode = ClsMode.getMode();
 
-            if (  bool.Parse( Mode["printing"].ToString()) == true)
+            if (bool.Parse(Mode["printing"].ToString()) == true)
             {
                 purchasesToolStripMenuItem.Visible = true;
             }
 
-            if ( bool.Parse (Mode["emailsender"].ToString()) == true)
+            if (bool.Parse(Mode["emailsender"].ToString()) == true)
             {
                 emailToolStripMenuItem.Visible = true;
             }
@@ -79,6 +87,13 @@ namespace PurchasePrinting
         }
         private void pOExportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (MiscHelper.IsInternetAvailable() == true)
+            {
+                MessageBox.Show("Internet connection should be disabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (isLogin == false)
             {
                 tryToLogin();
@@ -88,22 +103,31 @@ namespace PurchasePrinting
                 }
             }
 
+
+
             FrmPRBatchPrinting frmPRBatchPrinting = new FrmPRBatchPrinting(false, false);
             ClsForm.OpenChild(frmPRBatchPrinting);
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void directoryFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void pOExportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            if (MiscHelper.IsInternetAvailable() == true)
+            {
+                MessageBox.Show("Internet connection should be disabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (isLogin == false)
             {
 
@@ -122,8 +146,14 @@ namespace PurchasePrinting
 
         private void fileSenderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmailSenderToSupplier.FrmMain frm = new EmailSenderToSupplier.FrmMain();
 
+            if (MiscHelper.IsInternetAvailable() == false)
+            {
+                MessageBox.Show("Internet connection should be enabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            EmailSenderToSupplier.FrmMain frm = new EmailSenderToSupplier.FrmMain();
             ClsForm.OpenChild(frm);
         }
 
@@ -141,22 +171,22 @@ namespace PurchasePrinting
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void emailSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void userListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void emailListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)

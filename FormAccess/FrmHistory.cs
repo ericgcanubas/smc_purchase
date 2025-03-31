@@ -38,6 +38,13 @@ namespace FileSending
 
             if (isSelected)
             {
+
+                if (PurchasePrinting.Class.MiscHelper.IsInternetAvailable() == false)
+                {
+                    MessageBox.Show("Internet connection should be enabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 FrmSendFile frm = new FrmSendFile("", lvFiles, true, _Username);
                 frm.ShowDialog();
                 frm.Dispose();

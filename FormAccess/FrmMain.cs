@@ -33,6 +33,9 @@ namespace EmailSenderToSupplier
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+
+
+
             timer1.Start();
         }
         private void isRun()
@@ -152,6 +155,16 @@ namespace EmailSenderToSupplier
 
                 if (hasSelected == true)
                 {
+
+
+
+                    if (PurchasePrinting.Class.MiscHelper.IsInternetAvailable() == false)
+                    {
+                        MessageBox.Show("Internet connection should be enabled.", "message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+       
                     FrmSendFile frm = new FrmSendFile(txtPath.Text, lvFiles, false, Username);
                     frm.ShowDialog();
                     frm.Dispose();
