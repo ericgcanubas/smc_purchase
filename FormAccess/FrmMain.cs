@@ -80,7 +80,11 @@ namespace EmailSenderToSupplier
 
                     string PO = OtherHelper.getPO(Path.GetFileName(pdf));
                     string Email = OtherHelper.getEmail(Path.GetFileName(pdf));
-                    pdfList.Add(new Tuple<string, string, string>(Email, PO, pdf));
+                    if(Email.Trim() != "")
+                    {
+                        pdfList.Add(new Tuple<string, string, string>(Email, PO, pdf));
+                    }
+              
 
          
                 }
@@ -93,6 +97,7 @@ namespace EmailSenderToSupplier
                 foreach (var pdf in pdfList)
                 {
                     row++;
+
                     ListViewItem item = new ListViewItem(row.ToString());
                     item.Checked = true;
                     item.SubItems.Add(pdf.Item1);
@@ -146,7 +151,7 @@ namespace EmailSenderToSupplier
 
                 foreach (ListViewItem item in lvFiles.Items)
                 {
-                    if (item.Checked == true)
+                    if (item.Checked == true && item.SubItems[1].Text != "")
                     {
                         hasSelected = true;
                     }

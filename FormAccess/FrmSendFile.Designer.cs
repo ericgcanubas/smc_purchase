@@ -87,7 +87,7 @@
             this.txtMessage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(373, 88);
+            this.txtMessage.Size = new System.Drawing.Size(373, 96);
             this.txtMessage.TabIndex = 8;
             // 
             // label3
@@ -129,7 +129,7 @@
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Location = new System.Drawing.Point(8, 275);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(388, 80);
+            this.pnlMain.Size = new System.Drawing.Size(388, 86);
             this.pnlMain.TabIndex = 19;
             // 
             // txtEmail

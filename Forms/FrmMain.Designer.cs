@@ -60,7 +60,7 @@
             this.pOExportToolStripMenuItem,
             this.pOExportToolStripMenuItem1});
             this.purchasesToolStripMenuItem.Name = "purchasesToolStripMenuItem";
-            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.purchasesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.purchasesToolStripMenuItem.Text = "&Print && Export";
             this.purchasesToolStripMenuItem.Visible = false;
             // 
@@ -68,7 +68,7 @@
             // 
             this.pRBatchPrintingToolStripMenuItem.Name = "pRBatchPrintingToolStripMenuItem";
             this.pRBatchPrintingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pRBatchPrintingToolStripMenuItem.Text = "Print PR";
+            this.pRBatchPrintingToolStripMenuItem.Text = "Print POV";
             this.pRBatchPrintingToolStripMenuItem.Click += new System.EventHandler(this.pRBatchPrintingToolStripMenuItem_Click);
             // 
             // pOExportToolStripMenuItem
@@ -98,7 +98,7 @@
             // fileSenderToolStripMenuItem
             // 
             this.fileSenderToolStripMenuItem.Name = "fileSenderToolStripMenuItem";
-            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileSenderToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.fileSenderToolStripMenuItem.Text = "Send a File";
             this.fileSenderToolStripMenuItem.Click += new System.EventHandler(this.fileSenderToolStripMenuItem_Click);
             // 
@@ -108,7 +108,7 @@
             this.usersToolStripMenuItem,
             this.emailListToolStripMenuItem1});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // usersToolStripMenuItem

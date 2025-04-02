@@ -103,7 +103,7 @@
             this.dtDATE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtDATE.Name = "dtDATE";
             this.dtDATE.ShowCheckBox = true;
-            this.dtDATE.Size = new System.Drawing.Size(146, 25);
+            this.dtDATE.Size = new System.Drawing.Size(158, 25);
             this.dtDATE.TabIndex = 18;
             this.dtDATE.ValueChanged += new System.EventHandler(this.dtDATE_ValueChanged);
             // 
