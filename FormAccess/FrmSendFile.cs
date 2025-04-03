@@ -85,7 +85,7 @@ namespace FSS
 
                         string SaveAttachment = saveFile + @"\" + item.SubItems[2].Text + ".pdf"; // rename
                         File.Move(FileAttachment, SaveAttachment); // transfer
-                        AccessDatabase.ExecuteNonQuery($@"INSERT INTO [fileSend] ([PO_NUMBER],[EMAIL_ADDRESS],[SAVE_PATH],[SOURCE_PATH],[POSTED],[DATE_SEND],[SEND_EMAIL]) VALUES('{item.SubItems[2].Text}','{Email}','{SaveAttachment}','{FileAttachment2}',0,Now(),'{SEND_EMAIL}')");
+                        AccessDatabase.ExecuteNonQuery($@"INSERT INTO [fileSend] ([PO_NUMBER],[EMAIL_ADDRESS],[SAVE_PATH],[SOURCE_PATH],[POSTED],[DATE_SEND],[SEND_EMAIL]) VALUES('{item.SubItems[2].Text}','{Email}','{SaveAttachment.Replace("'", "`")}','{FileAttachment2.Replace("'","`")}',0,Now(),'{SEND_EMAIL}')");
                         Application.DoEvents();
 
                     }
