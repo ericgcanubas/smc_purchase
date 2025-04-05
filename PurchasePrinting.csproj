@@ -7,7 +7,7 @@
     <ProjectGuid>{9180C0C0-906B-4BA4-A7C0-A44A062F6652}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PurchasePrinting</RootNamespace>
-    <AssemblyName>POPrintExport</AssemblyName>
+    <AssemblyName>EPEX</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>po.ico</ApplicationIcon>
+    <ApplicationIcon>epex.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -138,9 +138,6 @@
     <Compile Include="Class\MiscHelper.cs" />
     <Compile Include="Class\SqlHelper.cs" />
     <Compile Include="Class\UserDirectory.cs" />
-    <Compile Include="CustomInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FormAccess\FrmEmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +362,7 @@
       <LastGenOutput>PRNew.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="po.icc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -382,10 +380,6 @@
     <None Include="Resources\bullet-arrow-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="po.ico" />
-    <None Include="po.icc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\lock1.png" />
     <None Include="Resources\lock.png" />
     <None Include="Resources\tech_background.jpg" />
@@ -408,6 +402,8 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="epex.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

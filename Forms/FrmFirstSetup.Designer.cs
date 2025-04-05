@@ -242,7 +242,7 @@
             this.Name = "FrmFirstSetup";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "First Time Setup";
+            this.Text = "EPEX - First Time Setup";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFirstSetup_FormClosing);
             this.Load += new System.EventHandler(this.FrmFirstSetup_Load);
             this.grpPrint.ResumeLayout(false);
