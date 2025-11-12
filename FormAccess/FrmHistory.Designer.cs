@@ -38,6 +38,8 @@
             this.dtDATE = new System.Windows.Forms.DateTimePicker();
             this.btnReSend = new System.Windows.Forms.Button();
             this.lblRecord = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPOSearch = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +72,8 @@
             this.lvFiles.TabIndex = 17;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
+            this.lvFiles.SelectedIndexChanged += new System.EventHandler(this.lvFiles_SelectedIndexChanged);
+            this.lvFiles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvFiles_KeyDown);
             // 
             // Email
             // 
@@ -127,11 +131,30 @@
             this.lblRecord.TabIndex = 20;
             this.lblRecord.Text = "Record : 0";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(457, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "PO Search :";
+            // 
+            // txtPOSearch
+            // 
+            this.txtPOSearch.Location = new System.Drawing.Point(538, 19);
+            this.txtPOSearch.Name = "txtPOSearch";
+            this.txtPOSearch.Size = new System.Drawing.Size(168, 25);
+            this.txtPOSearch.TabIndex = 22;
+            this.txtPOSearch.TextChanged += new System.EventHandler(this.txtPOSearch_TextChanged);
+            // 
             // FrmHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 442);
+            this.Controls.Add(this.txtPOSearch);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblRecord);
             this.Controls.Add(this.btnReSend);
             this.Controls.Add(this.dtDATE);
@@ -165,5 +188,7 @@
         private System.Windows.Forms.ColumnHeader DateSend1;
         private System.Windows.Forms.Label lblRecord;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPOSearch;
     }
 }

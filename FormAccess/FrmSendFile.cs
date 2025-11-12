@@ -103,18 +103,15 @@ namespace FSS
             {
                 if (item.Checked == true)
                 {
-
                     string Email = getTextEmail(item.Text);
-
                     AccessDatabase.ExecuteNonQuery($"UPDATE [fileSend] set [POSTED] = 0,[DATE_SEND]=Now(),[SEND_EMAIL]='{SEND_EMAIL}',[EMAIL_ADDRESS]='{Email}' WHERE [ID] = {item.SubItems[2].Text} ");
                 }
-
             }
         }
         private void getHeaderEmail(string emailAddress, string EmailPassword)
         {
             List<string> attachFile = new List<string>();
-            DataTable dt = AccessDatabase.dataList("select [EMAIL_ADDRESS] from [fileSend] where [posted] = 0 group by [EMAIL_ADDRESS] ");
+            DataTable dt = AccessDatabase.dataList($"select [EMAIL_ADDRESS] from [fileSend] where [posted] = 0 group by [EMAIL_ADDRESS] ");
             foreach (DataRow row in dt.Rows)
             {
                 string SENT_EMAIL = row["EMAIL_ADDRESS"].ToString();
